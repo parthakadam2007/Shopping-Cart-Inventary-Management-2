@@ -30,14 +30,14 @@ const handleLogin = async (e) => {
       return;
     }
 
-      const { jwtToken, username, customerId, shopkeeperId } = response.data;
+      const { jwtToken, username, customerId, shopKeeperId } = response.data;
 
       // ✅ Save token and username
       localStorage.setItem('token', jwtToken);
       localStorage.setItem('username', username);
       localStorage.setItem('role', role);
-      localStorage.setItem('customerId', customerId);
-      localStorage.setItem('shopKeeperId', shopkeeperId);
+      if(customerId != null)  localStorage.setItem('customerId', customerId);
+      if(shopKeeperId != null)localStorage.setItem('shopKeeperId', shopKeeperId);
 
     console.log('✅ Login successful:', response.data);
 

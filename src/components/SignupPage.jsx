@@ -40,14 +40,14 @@ export default function SignupPage() {
       }
 
       // ✅ Extract token and username
-      const { jwtToken, username, customerId, shopkeeperId } = response.data;
+      const { jwtToken, username, customerId, shopKeeperId } = response.data;
 
       // ✅ Save token and username
       localStorage.setItem('token', jwtToken);
       localStorage.setItem('username', username);
       localStorage.setItem('role', role);
-      localStorage.setItem('customerId', customerId);
-      localStorage.setItem('shopKeeperId', shopkeeperId);
+      if(customerId != null)  localStorage.setItem('customerId', customerId);
+      if(shopKeeperId != null)localStorage.setItem('shopKeeperId', shopKeeperId);
 
       // ✅ Redirect to respective dashboard
       if (role === 'customer') {
